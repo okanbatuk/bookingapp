@@ -1,0 +1,18 @@
+# ignore all mmodule
+node_modules
+
+# ignore env files
+.env
+
+# ignore all .vscode files
+.vscode/
+.vscode-jest
+
+# ignore sequelize setting file
+.sequelizerc
+
+# ignore all temp files
+temp/
+
+# ignore all log files
+logs/
