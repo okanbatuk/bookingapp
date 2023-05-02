@@ -3,7 +3,7 @@ import path from "path";
 import { config } from "dotenv-safe";
 
 let port = "";
-let db_url = "";
+let db = "";
 
 config({
   allowEmptyValues: true,
@@ -12,7 +12,7 @@ config({
 
 (async () => {
   port = process.env.PORT;
-  db_url = process.env.MONGO;
+  db = process.env.MONGO;
 })();
 
-export { port, db_url };
+export { port, db };
