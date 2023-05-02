@@ -1,3 +1,4 @@
+"use strict";
 import app from "./configs/express.js";
 import { port } from "./configs/vars.js";
 
