@@ -1,0 +1,55 @@
+###
+GET http://localhost:3500/api/status
+
+###
+GET http://localhost:3500/api/login
+
+
+###
+GET http://localhost:3500/api/hotels
+
+###
+POST http://localhost:3500/api/hotels
+Content-Type: application/json
+
+{
+  "name":"Raddison Blue",
+  "type":"hotel",
+  "city":"Mersin",
+  "address":"somewhere",
+  "distance":"500",
+  "title":"Best Hotel in the City",
+  "desc":"desccc",
+  "cheapestPrice":100
+}
+
+###
+POST http://localhost:3500/api/hotels
+Content-Type: application/json
+
+{
+  "name":"Lamos Hotel",
+  "type":"hotel",
+  "city":"Mersin",
+  "address":"somewhere",
+  "distance":"500",
+  "title":"Best Hotel in the City",
+  "desc":"desccc",
+  "cheapestPrice":250
+}
+
+
+###
+GET http://localhost:3500/api/hotels/6454249b816b1e32250c050c
+
+###
+PUT http://localhost:3500/api/hotels/6454249b816b1e32250c050c
+Content-Type: application/json
+
+{
+  "desc":"New description for hotel",
+  "cheapestPrice":300
+}
+
+###
+DELETE http://localhost:3500/api/hotels/6454249b816b1e32250c050c
