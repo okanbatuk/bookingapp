@@ -2,10 +2,6 @@
 GET http://localhost:3500/api/status
 
 ###
-GET http://localhost:3500/api/login
-
-
-###
 GET http://localhost:3500/api/hotels
 
 ###
@@ -40,10 +36,10 @@ Content-Type: application/json
 
 
 ###
-GET http://localhost:3500/api/hotels/6454249b816b1e32250c050c
+GET http://localhost:3500/api/hotels/64555297f39fd2407c9163bc
 
 ###
-PUT http://localhost:3500/api/hotels/6454249b816b1e32250c050c
+PUT http://localhost:3500/api/hotels/64555297f39fd2407c9163bc
 Content-Type: application/json
 
 {
@@ -52,4 +48,4 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:3500/api/hotels/6454249b816b1e32250c050c
+DELETE http://localhost:3500/api/hotels/64555297f39fd2407c9163bc

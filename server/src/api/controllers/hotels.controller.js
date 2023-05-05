@@ -1,3 +1,4 @@
+"use strict";
 import httpStatus from "http-status";
 import * as hotelService from "../services/hotels.service.js";
 
@@ -5,9 +6,9 @@ import * as hotelService from "../services/hotels.service.js";
 const getHotels = async (req, res, next) => {
   try {
     const hotels = await hotelService.getAll();
-    res.status(httpStatus.OK).json(hotels);
+    res.respond(hotels);
   } catch (error) {
-    res.status(error.status).json({ success: false, message: error.message });
+    next(error);
   }
 };
 
@@ -16,9 +17,9 @@ const getHotelById = async (req, res, next) => {
   try {
     const { id } = req.params;
     const hotel = await hotelService.get(id);
-    res.status(httpStatus.OK).json(hotel);
+    res.respond(hotel);
   } catch (error) {
-    res.status(error.status).json({ success: false, message: error.message });
+    next(error);
   }
 };
 
@@ -27,12 +28,9 @@ const createHotel = async (req, res, next) => {
   try {
     let newHotel = await hotelService.create(req.body);
 
-    res.status(httpStatus.OK).json({
-      success: true,
-      message: `${newHotel.name} is created successfully..`,
-    });
+    res.onlyMessage(`${newHotel.name} is created successfully..`);
   } catch (error) {
-    res.status(error.status).json({ success: false, message: error.message });
+    next(error);
   }
 };
 
@@ -41,12 +39,9 @@ const updateHotel = async (req, res, next) => {
   try {
     const { id } = req.params;
     let updatedHotel = await hotelService.update(id, req.body);
-    res.status(httpStatus.OK).json({
-      success: true,
-      message: `${updatedHotel._id} is updated successfully..`,
-    });
+    res.onlyMessage(`${updatedHotel._id} is updated successfully..`);
   } catch (error) {
-    res.status(error.status).json({ success: false, message: error.message });
+    next(error);
   }
 };
 
@@ -55,12 +50,9 @@ const deleteHotelById = async (req, res, next) => {
   try {
     const { id } = req.params;
     let deletedHotel = await hotelService.deleteById(id);
-    res.status(httpStatus.OK).json({
-      success: true,
-      message: `${deletedHotel.name} is deleted successfully..`,
-    });
+    res.onlyMessage(`${deletedHotel.name} is deleted successfully..`);
   } catch (error) {
-    res.status(error.status).json({ success: false, message: error.message });
+    next(error);
   }
 };
 
