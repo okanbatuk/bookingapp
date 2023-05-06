@@ -2,6 +2,12 @@
 GET http://localhost:3500/api/status
 
 ###
+GET http://localhost:3500/api/login
+
+###
+GET http://localhost:3500/api/register
+
+###
 GET http://localhost:3500/api/hotels
 
 ###
@@ -49,3 +55,35 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:3500/api/hotels/64555297f39fd2407c9163bc
+
+
+###
+POST http://localhost:3500/api/register
+Content-Type: application/json
+
+{
+  "username":"jane",
+  "email":"jane@example.com",
+  "password":"123123"
+}
+
+###
+POST http://localhost:3500/api/login
+Content-Type: application/json
+
+{
+  "username":"jane",
+  "password":"123123"
+}
+
+###
+POST http://localhost:3500/api/login
+Content-Type: application/json
+
+{
+  "email":"john@example.com",
+  "password":"123123"
+}
+
+###
+GET http://localhost:3500/api/logout
