@@ -1,5 +1,7 @@
 "use strict";
 import express from "express";
+import cookieParser from "cookie-parser";
+import cors from "cors";
 import connectDb from "./dbconnect.js";
 import router from "../api/routes/index.js";
 import * as error from "../api/utils/errors.js";
@@ -15,11 +17,17 @@ const app = express();
 // Request logging
 app.use(logger());
 
+// Enable Cross Origin Resource Sharing
+app.use(cors());
+
 // Connect to db
 connectDb();
 
 // Parse requests with JSON
 app.use(express.json());
+
+// Parse cookie
+app.use(cookieParser());
 
 // response handler
 app.use(resHelper);
