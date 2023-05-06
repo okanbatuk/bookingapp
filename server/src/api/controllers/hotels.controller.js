@@ -1,5 +1,4 @@
 "use strict";
-import httpStatus from "http-status";
 import * as hotelService from "../services/hotels.service.js";
 
 // Get All Hotels

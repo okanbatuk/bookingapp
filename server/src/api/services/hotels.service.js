@@ -50,7 +50,9 @@ const get = (id) => {
  */
 const create = (hotel) => {
   return new Promise(async (resolve, reject) => {
+    // Create new hotel
     const newHotel = new Hotel(hotel);
+    // Save the hotel
     const savedHotel = await newHotel.save();
     savedHotel
       ? resolve(savedHotel)
@@ -79,7 +81,12 @@ const create = (hotel) => {
  */
 const update = (id, info) => {
   return new Promise(async (resolve, reject) => {
-    const updatedHotel = await Hotel.findByIdAndUpdate(id, { $set: info });
+    // Second option returns new version of data
+    const updatedHotel = await Hotel.findByIdAndUpdate(
+      id,
+      { $set: info },
+      { new: true }
+    );
     updatedHotel
       ? resolve(updatedHotel)
       : reject({
@@ -89,6 +96,13 @@ const update = (id, info) => {
   });
 };
 
+/*
+ * Delete hotel according to id
+ *
+ * @param String id
+ *
+ * DELETE /api/hotels/:id
+ */
 const deleteById = (id) => {
   return new Promise(async (resolve, reject) => {
     const deletedHotel = await Hotel.findByIdAndDelete(id);
