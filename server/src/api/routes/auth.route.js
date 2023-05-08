@@ -7,7 +7,7 @@ const router = Router();
 // Routes of /api/register
 router
   .route("/register")
-  .get((req, res, next) => {
+  .get((req, res) => {
     res.onlyMessage("Register Page");
   })
   .post(authController.register);
@@ -15,12 +15,13 @@ router
 // Routes of /api/login
 router
   .route("/login")
-  .get((req, res, next) => {
+  .get((req, res) => {
     res.onlyMessage("Login Page");
   })
   .post(authController.login);
 
-// TODO: Regenerate the Access Token according to the Refresh Token
+// Route of /api/refresh/:id
+router.get("/refresh/:id", authController.regenerateToken);
 
 // Route of /api/logout
 router.get("/logout", authController.logout);

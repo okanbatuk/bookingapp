@@ -9,6 +9,7 @@ GET http://localhost:3500/api/register
 
 ###
 GET http://localhost:3500/api/hotels
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG4iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4MzU3MzQ3NywiZXhwIjoxNjgzNTczNTA3fQ.vwk0zWNHUi2oz3ENn4WwjI2Sonh6MJiS-ZrsytxqlrI
 
 ###
 POST http://localhost:3500/api/hotels
@@ -84,6 +85,9 @@ Content-Type: application/json
   "email":"john@example.com",
   "password":"123123"
 }
+
+###
+GET http://localhost:3500/api/refresh/64557beac7ffe300e97885ba
 
 ###
 GET http://localhost:3500/api/logout

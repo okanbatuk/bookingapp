@@ -1,10 +1,11 @@
 "use strict";
 import { Router } from "express";
 import httpStatus from "http-status";
-import authRoute from "./auth.js";
-import usersRoute from "./users.js";
-import hotelsRoute from "./hotels.js";
-import roomsRoute from "./rooms.js";
+import authRoute from "./auth.route.js";
+import usersRoute from "./users.route.js";
+import hotelsRoute from "./hotels.route.js";
+import roomsRoute from "./rooms.route.js";
+import verifyJwt from "../middlewares/verifyAuth.js";
 
 const router = Router();
 
@@ -13,6 +14,8 @@ router.get("/status", (req, res) => {
 });
 
 router.use("/", authRoute);
+
+router.use(verifyJwt);
 router.use("/users", usersRoute);
 router.use("/hotels", hotelsRoute);
 router.use("/rooms", roomsRoute);

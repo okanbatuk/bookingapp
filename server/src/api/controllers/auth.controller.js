@@ -26,23 +26,24 @@ const login = async (req, res, next) => {
 
     // if submitted user infos is incorrect returns an error
     let user = await authService.login(req.body);
-    let userId = user._doc._id.toString();
 
     // Generate a new Access Token
     let newAccessToken = await tokenProvider.generateAccessToken({
       username: user._doc.username,
+      role: user._doc.role,
     });
 
     // Generate a new Refresh Token
     let newRefreshToken = await tokenProvider.generateRefreshToken({
       username: user._doc.username,
+      role: user._doc.role,
     });
 
     // Add new refresh toke nto redis cache mem
     await redisClient
       .multi()
-      .sAdd(userId, newRefreshToken)
-      .expire(userId, 24 * 60 * 60)
+      .sAdd(user._doc._id.toString(), newRefreshToken)
+      .expire(user._doc._id.toString(), 24 * 60 * 60)
       .exec();
 
     /*
@@ -50,19 +51,19 @@ const login = async (req, res, next) => {
      * if cookie doesnt exist, there is no problem.
      *    Give the new refresh token and go.
      *
-     * if cookies and cookies jwt exist, there is an old refresh token
+     * if cookies and cookies token exist, there is an old refresh token
      *    Delete the old token and go
      */
-    cookies?.jwt &&
-      (res.clearCookie("jwt", {
+    cookies?.token &&
+      (res.clearCookie("token", {
         httpOnly: true,
         // sameSite: "None",
         // secure: true,
       }),
-      await redisClient.sRem(userId, cookies.jwt));
+      await redisClient.sRem(user._doc._id.toString(), cookies.token));
 
     // Add the refresh token to cookie
-    res.cookie("jwt", newRefreshToken, {
+    res.cookie("token", newRefreshToken, {
       httpOnly: true,
       // sameSite: "None",
       // secure: true,
@@ -76,6 +77,85 @@ const login = async (req, res, next) => {
 };
 
 /*
+ * Regenerate the Access Token
+ *
+ * @public GET /api/refresh/:id
+ * */
+const regenerateToken = async (req, res, next) => {
+  let { id } = req.params;
+  let { token } = req.cookies;
+
+  // Check the refresh token in req
+  if (!token)
+    return next({
+      message: "Token wasn't provided!",
+      status: httpStatus.FORBIDDEN,
+    });
+
+  // delete the to be used
+  res.clearCookie("token", {
+    httpOnly: true,
+    // sameSite: "None",
+    // secure: true
+  });
+
+  // check the tokens owned by user
+  let { members } = await redisClient.sScan(id, 0, { MATCH: token });
+
+  if (members.length > 0) {
+    // remove used token
+    await redisClient.sRem(id, token);
+
+    // verify the token and regenerate access and refresh tokens
+    jwt.verify(token, REFRESH_TOKEN_SECRET, async (err, decoded) => {
+      // token is expired
+      if (err)
+        return next({
+          message: "Token is expired",
+          status: httpStatus.UNAUTHORIZED,
+        });
+
+      // Create new access token cuz refresh token is valid
+      let newAccessToken = await tokenProvider.generateAccessToken({
+        username: decoded.username,
+        role: decoded.role,
+      });
+
+      // Create new Refresh Token cuz current token was used
+      let newRefreshToken = await tokenProvider.generateRefreshToken({
+        username: decoded.username,
+        role: decoded.role,
+      });
+
+      // Add new Refresh token next to other tokens owned by user
+      await redisClient
+        .multi()
+        .sAdd(id, newRefreshToken)
+        .expire(id, 24 * 60 * 60)
+        .exec();
+
+      // Set the token in cookie
+      res.cookie("token", newRefreshToken, {
+        httpOnly: true,
+        // sameSite: "None",
+        // secure: true
+      });
+      res.respond({ accessToken: newAccessToken });
+    });
+  } else {
+    // Find the hacked user
+    jwt.verify(token, REFRESH_TOKEN_SECRET, async (err, decoded) => {
+      if (err)
+        return next({ message: "FORBIDDEN", status: httpStatus.FORBIDDEN });
+
+      // find and delete the hacked user's tokens
+      await redisClient.DEL(id);
+      next({ message: "FORBIDDEN", status: httpStatus.FORBIDDEN });
+    });
+  }
+};
+
+/*
  *
  * Clear jwt cookie and delete refresh token
  *
@@ -84,14 +164,14 @@ const login = async (req, res, next) => {
 const logout = async (req, res, next) => {
   const cookies = req.cookies;
 
-  // If cookies is exist check jwt in cookies
-  if (!cookies || !cookies.jwt)
+  // If cookies is exist check token in cookies
+  if (!cookies || !cookies.token)
     return res.onlyMessage("No Content", httpStatus.NO_CONTENT);
 
-  const refreshToken = cookies.jwt;
+  const refreshToken = cookies.token;
 
   // Delete the token
-  res.clearCookie("jwt", {
+  res.clearCookie("token", {
     httpOnly: true /* sameSite: "None", secure: true  */,
   });
 
@@ -118,4 +198,4 @@ const logout = async (req, res, next) => {
   });
 };
 
-export { register, login, logout };
+export { register, login, regenerateToken, logout };
