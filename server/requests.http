@@ -9,10 +9,11 @@ GET http://localhost:3500/api/register
 
 ###
 GET http://localhost:3500/api/hotels
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG4iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4MzU3MzQ3NywiZXhwIjoxNjgzNTczNTA3fQ.vwk0zWNHUi2oz3ENn4WwjI2Sonh6MJiS-ZrsytxqlrI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG4iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4MzY1MTU4OSwiZXhwIjoxNjgzNjUxNjE5fQ.KT-HZPjZwBA9-_-RAEoKyFxJk7IVRlTLcU9AvIue-zc
 
 ###
 POST http://localhost:3500/api/hotels
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG4iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4MzY1MTU4OSwiZXhwIjoxNjgzNjUxNjE5fQ.KT-HZPjZwBA9-_-RAEoKyFxJk7IVRlTLcU9AvIue-zc
 Content-Type: application/json
 
 {
@@ -28,6 +29,7 @@ Content-Type: application/json
 
 ###
 POST http://localhost:3500/api/hotels
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG4iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4MzY1MTU4OSwiZXhwIjoxNjgzNjUxNjE5fQ.KT-HZPjZwBA9-_-RAEoKyFxJk7IVRlTLcU9AvIue-zc
 Content-Type: application/json
 
 {
@@ -44,14 +46,16 @@ Content-Type: application/json
 
 ###
 GET http://localhost:3500/api/hotels/64555297f39fd2407c9163bc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG4iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4MzY1MTU4OSwiZXhwIjoxNjgzNjUxNjE5fQ.KT-HZPjZwBA9-_-RAEoKyFxJk7IVRlTLcU9AvIue-zc
 
 ###
 PUT http://localhost:3500/api/hotels/64555297f39fd2407c9163bc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG4iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4MzY1MTU4OSwiZXhwIjoxNjgzNjUxNjE5fQ.KT-HZPjZwBA9-_-RAEoKyFxJk7IVRlTLcU9AvIue-zc
 Content-Type: application/json
 
 {
-  "desc":"New description for hotel",
-  "cheapestPrice":300
+  "desc":"NEW DESCC",
+  "cheapestPrice":200
 }
 
 ###
@@ -65,15 +69,6 @@ Content-Type: application/json
 {
   "username":"jane",
   "email":"jane@example.com",
-  "password":"123123"
-}
-
-###
-POST http://localhost:3500/api/login
-Content-Type: application/json
-
-{
-  "username":"jane",
   "password":"123123"
 }
 
