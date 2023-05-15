@@ -4,9 +4,9 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import connectDb from "./dbconnect.js";
 import router from "../api/routes/index.js";
-import * as error from "../api/utils/errors.js";
+import * as error from "../api/helpers/errors.js";
 import logger from "../api/middlewares/logger.js";
-import resHelper from "../api/utils/response.js";
+import resHelper from "../api/helpers/response.js";
 
 /*
  * Create app

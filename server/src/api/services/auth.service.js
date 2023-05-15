@@ -2,15 +2,7 @@ import { hash, compare } from "bcrypt";
 import User from "../models/User.js";
 import httpStatus from "http-status";
 
-/*
- * Create new User
- *
- * @body String username
- * @body String email
- * @body String password
- *
- * POST /api/register
- */
+// Create a new user
 const create = (user) => {
   return new Promise(async (resolve, reject) => {
     let { username, email, password } = user;
@@ -20,13 +12,13 @@ const create = (user) => {
         { username: username.toLowerCase() },
         { email: email.toLowerCase() },
       ],
-    });
+    }).lean();
 
     // hash the password
     let hashedPassword = !conflictUser && (await hash(password, 10));
 
     // Create new User
-    const newUser = !conflictUser
+    const newUser = hashedPassword
       ? new User({
           username: username.toLowerCase(),
           email: email.toLowerCase(),
@@ -43,20 +35,13 @@ const create = (user) => {
             status: httpStatus.BAD_REQUEST,
           })
       : reject({
-          message: "Username or email already in use",
+          message: "Username or email already in use..",
           status: httpStatus.CONFLICT,
         });
   });
 };
 
-/*
- * User Login
- *
- * @body String username  ||  @body String email
- * @body String password
- *
- * POST /api/login
- */
+// Login user
 const login = (user) => {
   return new Promise(async (resolve, reject) => {
     let { username, email, password } = user;
@@ -64,10 +49,10 @@ const login = (user) => {
     // Find the user who wants to login
     let existUser = await User.findOne({
       $or: [
-        { username: username && username.toLowerCase() },
-        { email: email && email.toLowerCase() },
+        { username: username?.toLowerCase() },
+        { email: email?.toLowerCase() },
       ],
-    });
+    }).lean();
 
     // Compare the password with saved password
     let check = existUser ? await compare(password, existUser.password) : false;
@@ -79,7 +64,7 @@ const login = (user) => {
      */
     existUser
       ? check
-        ? (delete existUser._doc.password, resolve(existUser))
+        ? (delete existUser.password, resolve(existUser))
         : reject({
             message: "Incorrect Password",
             status: httpStatus.UNAUTHORIZED,

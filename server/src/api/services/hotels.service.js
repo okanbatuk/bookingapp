@@ -84,7 +84,7 @@ const update = (id, info) => {
     // Second option returns new version of data
     const updatedHotel = await Hotel.findByIdAndUpdate(
       id,
-      { $set: info },
+      { $set: info, $currentDate: { lastModified: true } },
       { new: true }
     );
     updatedHotel
