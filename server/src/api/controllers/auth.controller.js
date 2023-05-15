@@ -19,9 +19,6 @@ import { REFRESH_TOKEN_SECRET } from "../../configs/vars.js";
  */
 const register = async (req, res, next) => {
   try {
-    // Check req.body
-    await registerSchema.validateAsync(req.body);
-
     // if user cant be registered returns an error
     let user = await authService.create(req.body);
 
@@ -41,9 +38,6 @@ const register = async (req, res, next) => {
  */
 const login = async (req, res, next) => {
   try {
-    // Check req.body
-    await loginSchema.validateAsync(req.body);
-
     // Get cookies from request
     let cookies = req.cookies;
 

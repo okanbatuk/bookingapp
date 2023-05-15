@@ -1,6 +1,7 @@
 "use strict";
 import { Router } from "express";
-import * as authController from "../controllers/auth.controller.js";
+import * as authControllers from "../controllers/auth.controller.js";
+import * as authValidations from "../middlewares/auth.validate.js";
 
 const router = Router();
 
@@ -10,7 +11,7 @@ router
   .get((req, res) => {
     res.onlyMessage("Register Page");
   })
-  .post(authController.register);
+  .post(authValidations.registerVal, authControllers.register);
 
 // Routes of /api/login
 router
@@ -18,12 +19,12 @@ router
   .get((req, res) => {
     res.onlyMessage("Login Page");
   })
-  .post(authController.login);
+  .post(authValidations.loginVal, authControllers.login);
 
 // Route of /api/refresh/:id
-router.get("/refresh/:id", authController.regenerateToken);
+router.get("/refresh/:id", authControllers.regenerateToken);
 
 // Route of /api/logout
-router.get("/logout", authController.logout);
+router.get("/logout", authControllers.logout);
 
 export default router;
