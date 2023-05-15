@@ -2,25 +2,48 @@
 import httpStatus from "http-status";
 import jwt from "jsonwebtoken";
 import User from "../models/User.js";
+import { loginSchema, registerSchema } from "../utils/auth.validations.js";
 import * as authService from "../services/auth.service.js";
 import * as tokenProvider from "../utils/generateTokens.js";
 import redisClient from "../../configs/redisconnect.js";
 import { REFRESH_TOKEN_SECRET } from "../../configs/vars.js";
 
-// Create a new user
+/*
+ * Create new User
+ *
+ * @body String username
+ * @body String email
+ * @body String password
+ *
+ * POST /api/register
+ */
 const register = async (req, res, next) => {
   try {
+    // Check req.body
+    await registerSchema.validateAsync(req.body);
+
     // if user cant be registered returns an error
     let user = await authService.create(req.body);
+
     res.onlyMessage(`${user.username} is created successfully..`);
   } catch (error) {
     next(error);
   }
 };
 
-// Login user
+/*
+ * User Login
+ *
+ * @body String username  ||  @body String email
+ * @body String password
+ *
+ * POST /api/login
+ */
 const login = async (req, res, next) => {
   try {
+    // Check req.body
+    await loginSchema.validateAsync(req.body);
+
     // Get cookies from request
     let cookies = req.cookies;
 
@@ -29,21 +52,21 @@ const login = async (req, res, next) => {
 
     // Generate a new Access Token
     let newAccessToken = await tokenProvider.generateAccessToken({
-      username: user._doc.username,
-      role: user._doc.role,
+      username: user.username,
+      role: user.role,
     });
 
     // Generate a new Refresh Token
     let newRefreshToken = await tokenProvider.generateRefreshToken({
-      username: user._doc.username,
-      role: user._doc.role,
+      username: user.username,
+      role: user.role,
     });
 
     // Add new refresh toke nto redis cache mem
     await redisClient
       .multi()
-      .sAdd(user._doc._id.toString(), newRefreshToken)
-      .expire(user._doc._id.toString(), 24 * 60 * 60)
+      .sAdd(user._id.toString(), newRefreshToken)
+      .expire(user._id.toString(), 24 * 60 * 60)
       .exec();
 
     /*
@@ -60,7 +83,7 @@ const login = async (req, res, next) => {
         // sameSite: "None",
         // secure: true,
       }),
-      await redisClient.sRem(user._doc._id.toString(), cookies.token));
+      await redisClient.sRem(user._id.toString(), cookies.token));
 
     // Add the refresh token to cookie
     res.cookie("token", newRefreshToken, {
