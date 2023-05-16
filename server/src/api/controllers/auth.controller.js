@@ -2,7 +2,6 @@
 import httpStatus from "http-status";
 import jwt from "jsonwebtoken";
 import User from "../models/User.js";
-import { loginSchema, registerSchema } from "../utils/auth.validations.js";
 import * as authService from "../services/auth.service.js";
 import * as tokenProvider from "../utils/generateTokens.js";
 import redisClient from "../../configs/redisconnect.js";
@@ -163,9 +162,16 @@ const regenerateToken = async (req, res, next) => {
     // Find the hacked user
     jwt.verify(token, REFRESH_TOKEN_SECRET, async (err, decoded) => {
       if (err)
-        return next({ message: "FORBIDDEN", status: httpStatus.FORBIDDEN });
+        return next({ message: err.message, status: httpStatus.FORBIDDEN });
 
-      // find and delete the hacked user's tokens
+      // Find the user who sent request
+      const user = await User.findOne(
+        { username: decoded.username },
+        { _id: 1 }
+      );
+
+      // delete the tokens of the user who was hacked and sent request
+      await redisClient.DEL(user._id.toString());
       await redisClient.DEL(id);
       next({ message: "FORBIDDEN", status: httpStatus.FORBIDDEN });
     });
@@ -182,7 +188,7 @@ const logout = async (req, res, next) => {
   const cookies = req.cookies;
 
   // If cookies is exist check token in cookies
-  if (!cookies || !cookies.token)
+  if (!cookies?.token)
     return res.onlyMessage("No Content", httpStatus.NO_CONTENT);
 
   const refreshToken = cookies.token;
@@ -200,16 +206,15 @@ const logout = async (req, res, next) => {
     // Find user according to decoded token
     const user = await User.findOne({
       username: decoded.username,
-    });
-    let userId = user._doc._id.toString();
+    }).lean();
 
     // Tokens of found user should be deleted
-    let count = await redisClient.sCard(userId);
+    let count = await redisClient.sCard(user._id.toString());
 
-    // If count is more than 1, just delete this refresh token
+    // If count is more than 1, just delete used refresh token
     count > 1
-      ? await redisClient.sRem(userId, refreshToken)
-      : await redisClient.del(userId);
+      ? await redisClient.sRem(user._id.toString(), refreshToken)
+      : await redisClient.del(user._id.toString());
 
     res.onlyMessage("Log out successfully");
   });
