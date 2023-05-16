@@ -1,8 +1,9 @@
 import httpStatus from "http-status";
-import { loginSchema, registerSchema } from "../utils/auth.validations.js";
+import CreateUserSchema from "../dtos/CreateUser.dto.js";
+import LoginUserSchema from "../dtos/LoginUser.dto.js";
 
 const registerVal = (req, res, next) => {
-  const { error } = registerSchema.validate(req.body);
+  const { error } = CreateUserSchema.validate(req.body);
 
   if (error)
     return next({
@@ -15,7 +16,7 @@ const registerVal = (req, res, next) => {
 };
 
 const loginVal = (req, res, next) => {
-  const { error } = loginSchema.validate(req.body);
+  const { error } = LoginUserSchema.validate(req.body);
 
   if (error)
     return next({

@@ -1,7 +1,7 @@
 "use strict";
 import { Router } from "express";
 import * as authControllers from "../controllers/auth.controller.js";
-import * as authValidations from "../middlewares/auth.validate.js";
+import * as authValidations from "../middlewares/auth.validation.js";
 
 const router = Router();
 
