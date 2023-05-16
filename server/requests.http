@@ -9,11 +9,11 @@ GET http://localhost:3500/api/register
 
 ###
 GET http://localhost:3500/api/hotels
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG4xIiwicm9sZSI6InVzZXIiLCJpYXQiOjE2ODQyNjgwMjEsImV4cCI6MTY4NDI2ODA1MX0.T43iE-nInhNRt5YXfjtuXqO6rH48NiubhT7jmQIM_mU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFteSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjg0Mjc1OTY1LCJleHAiOjE2ODQyNzU5OTV9.MrtnEyKEE2Doi26YC55tbsVDg2pUNo1rhRleIse_2ds
 
 ###
 POST http://localhost:3500/api/hotels
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG4xIiwicm9sZSI6InVzZXIiLCJpYXQiOjE2ODQyNjgwMjEsImV4cCI6MTY4NDI2ODA1MX0.T43iE-nInhNRt5YXfjtuXqO6rH48NiubhT7jmQIM_mU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFteSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjg0Mjc1OTY1LCJleHAiOjE2ODQyNzU5OTV9.MrtnEyKEE2Doi26YC55tbsVDg2pUNo1rhRleIse_2ds
 Content-Type: application/json
 
 {
@@ -29,7 +29,7 @@ Content-Type: application/json
 
 ###
 POST http://localhost:3500/api/hotels
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG4xIiwicm9sZSI6InVzZXIiLCJpYXQiOjE2ODQyNjgwMjEsImV4cCI6MTY4NDI2ODA1MX0.T43iE-nInhNRt5YXfjtuXqO6rH48NiubhT7jmQIM_mU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFteSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjg0Mjc1OTY1LCJleHAiOjE2ODQyNzU5OTV9.MrtnEyKEE2Doi26YC55tbsVDg2pUNo1rhRleIse_2ds
 Content-Type: application/json
 
 {
@@ -46,11 +46,11 @@ Content-Type: application/json
 
 ###
 GET http://localhost:3500/api/hotels/64555297f39fd2407c9163bc
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG4xIiwicm9sZSI6InVzZXIiLCJpYXQiOjE2ODQyNjgwMjEsImV4cCI6MTY4NDI2ODA1MX0.T43iE-nInhNRt5YXfjtuXqO6rH48NiubhT7jmQIM_mU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFteSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjg0Mjc1OTY1LCJleHAiOjE2ODQyNzU5OTV9.MrtnEyKEE2Doi26YC55tbsVDg2pUNo1rhRleIse_2ds
 
 ###
 PUT http://localhost:3500/api/hotels/64555297f39fd2407c9163bc
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG4xIiwicm9sZSI6InVzZXIiLCJpYXQiOjE2ODQyNjgwMjEsImV4cCI6MTY4NDI2ODA1MX0.T43iE-nInhNRt5YXfjtuXqO6rH48NiubhT7jmQIM_mU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFteSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjg0Mjc1OTY1LCJleHAiOjE2ODQyNzU5OTV9.MrtnEyKEE2Doi26YC55tbsVDg2pUNo1rhRleIse_2ds
 Content-Type: application/json
 
 {
@@ -67,9 +67,9 @@ POST http://localhost:3500/api/register
 Content-Type: application/json
 
 {
-  "username":"john",
-  "email":"john@example.com",
-  "password":"123123"
+  "username":"amy",
+  "email":"amy@example.com",
+  "password":"123456"
 }
 
 ###
@@ -77,8 +77,8 @@ POST http://localhost:3500/api/login
 Content-Type: application/json
 
 {
-  "email":"john1@example.com",
-  "password":"123123"
+  "email":"amy@example.com",
+  "password":"123456"
 }
 
 ###
@@ -86,29 +86,50 @@ POST http://localhost:3500/api/login
 Content-Type: application/json
 
 {
-  "username":"john1",
+  "username":"jane",
   "password":"123123"
 }
 
 ###
 GET http://localhost:3500/api/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG4xIiwicm9sZSI6InVzZXIiLCJpYXQiOjE2ODQyNjgwMjEsImV4cCI6MTY4NDI2ODA1MX0.T43iE-nInhNRt5YXfjtuXqO6rH48NiubhT7jmQIM_mU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFteSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjg0Mjc1OTY1LCJleHAiOjE2ODQyNzU5OTV9.MrtnEyKEE2Doi26YC55tbsVDg2pUNo1rhRleIse_2ds
 
 ###
-GET http://localhost:3500/api/users/64557beac7ffe300e97885ba
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG4xIiwicm9sZSI6InVzZXIiLCJpYXQiOjE2ODQyNjgwMjEsImV4cCI6MTY4NDI2ODA1MX0.T43iE-nInhNRt5YXfjtuXqO6rH48NiubhT7jmQIM_mU
+GET http://localhost:3500/api/users/646402ec467e0f169b281d1c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFteSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjg0Mjc1OTY1LCJleHAiOjE2ODQyNzU5OTV9.MrtnEyKEE2Doi26YC55tbsVDg2pUNo1rhRleIse_2ds
 
 ###
-PUT http://localhost:3500/api/users/64557beac7ffe300e97885ba
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG4xIiwicm9sZSI6InVzZXIiLCJpYXQiOjE2ODQyNjgwMjEsImV4cCI6MTY4NDI2ODA1MX0.T43iE-nInhNRt5YXfjtuXqO6rH48NiubhT7jmQIM_mU
+POST http://localhost:3500/api/users/646402ec467e0f169b281d1c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFteSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjg0Mjc1OTY1LCJleHAiOjE2ODQyNzU5OTV9.MrtnEyKEE2Doi26YC55tbsVDg2pUNo1rhRleIse_2ds
 Content-Type: application/json
 
 {
-  "username":"jane"
+  "password": "123123",
+  "newPassword": "123456"
 }
 
 ###
-GET http://localhost:3500/api/refresh/64557beac7ffe300e97885ba
+PUT http://localhost:3500/api/users/6463eb163130ef4df37de5bf
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFteSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjg0Mjc1OTY1LCJleHAiOjE2ODQyNzU5OTV9.MrtnEyKEE2Doi26YC55tbsVDg2pUNo1rhRleIse_2ds
+Content-Type: application/json
+
+{
+  "username":"amy",
+  "email":"amy@example.com",
+  "password": "123123"
+}
+
+###
+DELETE http://localhost:3500/api/users/646402ec467e0f169b281d1c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFteSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjg0Mjc1OTY1LCJleHAiOjE2ODQyNzU5OTV9.MrtnEyKEE2Doi26YC55tbsVDg2pUNo1rhRleIse_2ds
+Content-Type: application/json
+
+{
+  "password": "123456"
+}
+
+###
+GET http://localhost:3500/api/refresh/646402ec467e0f169b281d1c
 
 ###
 GET http://localhost:3500/api/logout
