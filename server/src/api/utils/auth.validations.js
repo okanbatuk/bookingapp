@@ -1,8 +1,4 @@
-import Joi from "joi";
-// const { object, string } = Joi;
-const object = (args) => Joi.object(args);
-const string = () => Joi.string();
-const alternatives = () => Joi.alternatives();
+import { object, string, alternatives } from "./joiMethods.js";
 
 const registerSchema = object({
   username: string().min(3).max(50).required(),
