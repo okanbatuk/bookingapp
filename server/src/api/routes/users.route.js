@@ -2,13 +2,13 @@
 import { Router } from "express";
 import * as UserControllers from "../controllers/users.controller.js";
 import * as userSchemas from "../dtos/Users/index.js";
-import verifyUser from "../middlewares/verifyUser.js";
+import { verifyUser, verifyAdmin } from "../middlewares/role.verification.js";
 import dataValidation from "../middlewares/data.validation.js";
 
 const router = Router();
 
 // Check the user who sent request if the user is admin
-router.get("/", verifyUser, UserControllers.getUsers);
+router.get("/", verifyAdmin, UserControllers.getUsers);
 
 router
   .route("/:id")

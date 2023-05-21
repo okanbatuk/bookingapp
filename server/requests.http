@@ -9,11 +9,11 @@ GET http://localhost:3500/api/register
 
 ###
 GET http://localhost:3500/api/hotels
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFteSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjg0Mjc1OTY1LCJleHAiOjE2ODQyNzU5OTV9.MrtnEyKEE2Doi26YC55tbsVDg2pUNo1rhRleIse_2ds
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjlmYWI2NWVmMzZkYmJmMjNjNThiMCIsInVzZXJuYW1lIjoibXlybiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDY4MDk1NiwiZXhwIjoxNjg0NjgwOTg2fQ.uJPIR5d7qlvDnYzjQ_mmAgMk0zRdB8o0TvS8kv6U2bk
 
 ###
 POST http://localhost:3500/api/hotels
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFteSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjg0Mjc1OTY1LCJleHAiOjE2ODQyNzU5OTV9.MrtnEyKEE2Doi26YC55tbsVDg2pUNo1rhRleIse_2ds
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjlmYWI2NWVmMzZkYmJmMjNjNThiMCIsInVzZXJuYW1lIjoibXlybiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDY4MDk1NiwiZXhwIjoxNjg0NjgwOTg2fQ.uJPIR5d7qlvDnYzjQ_mmAgMk0zRdB8o0TvS8kv6U2bk
 Content-Type: application/json
 
 {
@@ -29,7 +29,7 @@ Content-Type: application/json
 
 ###
 POST http://localhost:3500/api/hotels
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFteSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjg0Mjc1OTY1LCJleHAiOjE2ODQyNzU5OTV9.MrtnEyKEE2Doi26YC55tbsVDg2pUNo1rhRleIse_2ds
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjlmYWI2NWVmMzZkYmJmMjNjNThiMCIsInVzZXJuYW1lIjoibXlybiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDY4MDk1NiwiZXhwIjoxNjg0NjgwOTg2fQ.uJPIR5d7qlvDnYzjQ_mmAgMk0zRdB8o0TvS8kv6U2bk
 Content-Type: application/json
 
 {
@@ -46,11 +46,11 @@ Content-Type: application/json
 
 ###
 GET http://localhost:3500/api/hotels/64555297f39fd2407c9163bc
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFteSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjg0Mjc1OTY1LCJleHAiOjE2ODQyNzU5OTV9.MrtnEyKEE2Doi26YC55tbsVDg2pUNo1rhRleIse_2ds
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjlmYWI2NWVmMzZkYmJmMjNjNThiMCIsInVzZXJuYW1lIjoibXlybiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDY4MDk1NiwiZXhwIjoxNjg0NjgwOTg2fQ.uJPIR5d7qlvDnYzjQ_mmAgMk0zRdB8o0TvS8kv6U2bk
 
 ###
 PUT http://localhost:3500/api/hotels/64555297f39fd2407c9163bc
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFteSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjg0Mjc1OTY1LCJleHAiOjE2ODQyNzU5OTV9.MrtnEyKEE2Doi26YC55tbsVDg2pUNo1rhRleIse_2ds
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjlmYWI2NWVmMzZkYmJmMjNjNThiMCIsInVzZXJuYW1lIjoibXlybiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDY4MDk1NiwiZXhwIjoxNjg0NjgwOTg2fQ.uJPIR5d7qlvDnYzjQ_mmAgMk0zRdB8o0TvS8kv6U2bk
 Content-Type: application/json
 
 {
@@ -67,9 +67,9 @@ POST http://localhost:3500/api/register
 Content-Type: application/json
 
 {
-  "username":"amy",
-  "email":"amy@example.com",
-  "password":"123456"
+  "username":"myrn",
+  "email":"myrn@example.com",
+  "password":"987654"
 }
 
 ###
@@ -78,50 +78,49 @@ Content-Type: application/json
 
 {
   "email":"amy@example.com",
-  "password":"123456"
-}
-
-###
-POST http://localhost:3500/api/login
-Content-Type: application/json
-
-{
-  "username":"jane",
   "password":"123123"
 }
 
 ###
+POST http://localhost:3500/api/login
+Content-Type: application/json
+
+{
+  "username":"myrn",
+  "password":"987654"
+}
+
+###
 GET http://localhost:3500/api/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFteSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjg0Mjc1OTY1LCJleHAiOjE2ODQyNzU5OTV9.MrtnEyKEE2Doi26YC55tbsVDg2pUNo1rhRleIse_2ds
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjlmYWI2NWVmMzZkYmJmMjNjNThiMCIsInVzZXJuYW1lIjoibXlybiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDY4MDk1NiwiZXhwIjoxNjg0NjgwOTg2fQ.uJPIR5d7qlvDnYzjQ_mmAgMk0zRdB8o0TvS8kv6U2bk
 
 ###
-GET http://localhost:3500/api/users/646402ec467e0f169b281d1c
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFteSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjg0Mjc1OTY1LCJleHAiOjE2ODQyNzU5OTV9.MrtnEyKEE2Doi26YC55tbsVDg2pUNo1rhRleIse_2ds
+GET http://localhost:3500/api/users/64660b99198422accfaeb172
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjlmYWI2NWVmMzZkYmJmMjNjNThiMCIsInVzZXJuYW1lIjoibXlybiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDY4MDk1NiwiZXhwIjoxNjg0NjgwOTg2fQ.uJPIR5d7qlvDnYzjQ_mmAgMk0zRdB8o0TvS8kv6U2bk
 
 ###
-POST http://localhost:3500/api/users/646402ec467e0f169b281d1c
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFteSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjg0Mjc1OTY1LCJleHAiOjE2ODQyNzU5OTV9.MrtnEyKEE2Doi26YC55tbsVDg2pUNo1rhRleIse_2ds
+POST http://localhost:3500/api/users/6469fab65ef36dbbf23c58b0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjlmYWI2NWVmMzZkYmJmMjNjNThiMCIsInVzZXJuYW1lIjoibXlybiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDY4MDk1NiwiZXhwIjoxNjg0NjgwOTg2fQ.uJPIR5d7qlvDnYzjQ_mmAgMk0zRdB8o0TvS8kv6U2bk
 Content-Type: application/json
 
 {
   "password": "123123",
-  "newPassword": "123456"
+  "newPassword": "987654"
 }
 
 ###
-PUT http://localhost:3500/api/users/6463eb163130ef4df37de5bf
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFteSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjg0Mjc1OTY1LCJleHAiOjE2ODQyNzU5OTV9.MrtnEyKEE2Doi26YC55tbsVDg2pUNo1rhRleIse_2ds
+PUT http://localhost:3500/api/users/64660b99198422accfaeb173
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjlmYWI2NWVmMzZkYmJmMjNjNThiMCIsInVzZXJuYW1lIjoibXlybiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDY4MDk1NiwiZXhwIjoxNjg0NjgwOTg2fQ.uJPIR5d7qlvDnYzjQ_mmAgMk0zRdB8o0TvS8kv6U2bk
 Content-Type: application/json
 
 {
-  "username":"amy",
-  "email":"amy@example.com",
+  "email":"myrn@example.com",
   "password": "123123"
 }
 
 ###
-DELETE http://localhost:3500/api/users/646402ec467e0f169b281d1c
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFteSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjg0Mjc1OTY1LCJleHAiOjE2ODQyNzU5OTV9.MrtnEyKEE2Doi26YC55tbsVDg2pUNo1rhRleIse_2ds
+DELETE http://localhost:3500/api/users/64660b99198422accfaeb173
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjlmYWI2NWVmMzZkYmJmMjNjNThiMCIsInVzZXJuYW1lIjoibXlybiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDY4MDk1NiwiZXhwIjoxNjg0NjgwOTg2fQ.uJPIR5d7qlvDnYzjQ_mmAgMk0zRdB8o0TvS8kv6U2bk
 Content-Type: application/json
 
 {
@@ -129,7 +128,7 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3500/api/refresh/646402ec467e0f169b281d1c
+GET http://localhost:3500/api/refresh/6469fab65ef36dbbf23c58b0
 
 ###
 GET http://localhost:3500/api/logout
