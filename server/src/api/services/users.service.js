@@ -5,7 +5,7 @@ import User from "../models/User.js";
 // Get All Users
 const getAll = () => {
   return new Promise(async (resolve, reject) => {
-    const users = await User.find().lean();
+    const users = await User.find({}, { password: 0 }).lean();
     users.length
       ? resolve(users)
       : reject({
@@ -18,7 +18,7 @@ const getAll = () => {
 // Get a User info
 const get = (id) => {
   return new Promise(async (resolve, reject) => {
-    const user = await User.findById(id).lean();
+    const user = await User.findById(id, { password: 0 }).lean();
     user
       ? resolve(user)
       : reject({ message: "User not found..", status: httpStatus.NOT_FOUND });
