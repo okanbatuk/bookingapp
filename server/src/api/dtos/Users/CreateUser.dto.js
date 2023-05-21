@@ -1,4 +1,4 @@
-import { object, string } from "../utils/joiMethods.js";
+import { object, string } from "../../utils/joiMethods.js";
 
 const registerSchema = object({
   username: string().min(3).max(50).required(),

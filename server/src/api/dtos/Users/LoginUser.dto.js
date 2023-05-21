@@ -1,4 +1,4 @@
-import { object, string, alternatives } from "../utils/joiMethods.js";
+import { object, string, alternatives } from "../../utils/joiMethods.js";
 
 const loginSchema = alternatives().try(
   object({

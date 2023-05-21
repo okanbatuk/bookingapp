@@ -1,4 +1,4 @@
-import { object, objectId } from "../utils/joiMethods.js";
+import { object, objectId } from "../../utils/joiMethods.js";
 
 const idParamSchema = object({
   id: objectId(),

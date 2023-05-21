@@ -1,4 +1,4 @@
-import { object, string } from "../utils/joiMethods.js";
+import { object, string } from "../../utils/joiMethods.js";
 
 const updatePasswdSchema = object({
   password: string().min(6).max(50).required(),

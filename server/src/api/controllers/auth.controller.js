@@ -45,12 +45,14 @@ const login = async (req, res, next) => {
 
     // Generate a new Access Token
     let newAccessToken = await tokenProvider.generateAccessToken({
+      id: user._id.toString(),
       username: user.username,
       role: user.role,
     });
 
     // Generate a new Refresh Token
     let newRefreshToken = await tokenProvider.generateRefreshToken({
+      id: user._id.toString(),
       username: user.username,
       role: user.role,
     });
@@ -133,12 +135,14 @@ const regenerateToken = async (req, res, next) => {
 
       // Create new access token cuz refresh token is valid
       let newAccessToken = await tokenProvider.generateAccessToken({
+        id: decoded.id,
         username: decoded.username,
         role: decoded.role,
       });
 
       // Create new Refresh Token cuz current token was used
       let newRefreshToken = await tokenProvider.generateRefreshToken({
+        id: decoded.id,
         username: decoded.username,
         role: decoded.role,
       });

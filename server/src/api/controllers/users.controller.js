@@ -47,15 +47,19 @@ const getUserById = async (req, res, next) => {
 const updateUser = async (req, res, next) => {
   try {
     const { id } = req.params;
+    const info = {
+      username: req.body?.username,
+      email: req.body?.email,
+    };
 
     // Check the submitted password
-    await UserService.checkPassword(id, req.password);
+    await UserService.checkPassword(id, req.body.password);
 
     // Check username and/or email for conflict
-    await UserService.checkFields(id, req.body);
+    await UserService.checkFields(id, info);
 
-    // Update the user information
-    await UserService.update(id, req.body);
+    // Update the user information. Just one(username or email) or both
+    await UserService.update(id, info);
 
     res.onlyMessage(`Information update completed successfully..`);
   } catch (error) {
