@@ -7,13 +7,89 @@ GET http://localhost:3500/api/login
 ###
 GET http://localhost:3500/api/register
 
+
+###
+GET http://localhost:3500/api/rooms
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjlmYWI2NWVmMzZkYmJmMjNjNThiMCIsInVzZXJuYW1lIjoibXlybiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDg3MDk4NCwiZXhwIjoxNjg0ODcxNTg0fQ.cTdLQGT5g0rTwymVEnnWPOfVuO8Sk9GXUMUWTqyH6J4
+
+###
+POST http://localhost:3500/api/rooms/645420a8f2f581d3e3cc400a
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjlmYWI2NWVmMzZkYmJmMjNjNThiMCIsInVzZXJuYW1lIjoibXlybiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDg3MDk4NCwiZXhwIjoxNjg0ODcxNTg0fQ.cTdLQGT5g0rTwymVEnnWPOfVuO8Sk9GXUMUWTqyH6J4
+Content-Type: application/json
+
+{
+  "title": "Normal Room",
+  "price": 250,
+  "maxPeople": 2,
+  "desc": "desccc",
+  "roomNumbers": [
+    {
+      "number": 101
+    },
+    {
+      "number": 102
+    }
+  ]
+}
+
+###
+POST http://localhost:3500/api/rooms/645420a8f2f581d3e3cc400a
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjlmYWI2NWVmMzZkYmJmMjNjNThiMCIsInVzZXJuYW1lIjoibXlybiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDg3MDk4NCwiZXhwIjoxNjg0ODcxNTg0fQ.cTdLQGT5g0rTwymVEnnWPOfVuO8Sk9GXUMUWTqyH6J4
+Content-Type: application/json
+
+{
+  "title": "Suite Room",
+  "price": 199,
+  "maxPeople": 3,
+  "desc": "desccc",
+  "roomNumbers": [
+    {
+      "number": 101
+    },
+    {
+      "number": 102
+    },
+    {
+      "number": 103
+    }
+  ]
+}
+
+###
+PUT http://localhost:3500/api/rooms/646cdc3c513e1492cb41c39e
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjlmYWI2NWVmMzZkYmJmMjNjNThiMCIsInVzZXJuYW1lIjoibXlybiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDg3MDk4NCwiZXhwIjoxNjg0ODcxNTg0fQ.cTdLQGT5g0rTwymVEnnWPOfVuO8Sk9GXUMUWTqyH6J4
+Content-Type: application/json
+
+{
+  "price": 399,
+  "roomNumbers": [
+    {
+      "number": 101
+    },
+    {
+      "number": 102
+    },
+    {
+      "number": 103
+    },
+    {
+      "number": 104
+    }
+  ]
+}
+
+###
+DELETE http://localhost:3500/api/rooms/646d111771c0cecdf46e7499
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjlmYWI2NWVmMzZkYmJmMjNjNThiMCIsInVzZXJuYW1lIjoibXlybiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDg3MDk4NCwiZXhwIjoxNjg0ODcxNTg0fQ.cTdLQGT5g0rTwymVEnnWPOfVuO8Sk9GXUMUWTqyH6J4
+
+
 ###
 GET http://localhost:3500/api/hotels
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjlmYWI2NWVmMzZkYmJmMjNjNThiMCIsInVzZXJuYW1lIjoibXlybiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDY4NTA3NCwiZXhwIjoxNjg0Njg1MTA0fQ.laFCUVyChonl9L6p5yQNOvuRa8RlRNM-nMBjeFxouKE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjlmYWI2NWVmMzZkYmJmMjNjNThiMCIsInVzZXJuYW1lIjoibXlybiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDg3MDk4NCwiZXhwIjoxNjg0ODcxNTg0fQ.cTdLQGT5g0rTwymVEnnWPOfVuO8Sk9GXUMUWTqyH6J4
 
 ###
 POST http://localhost:3500/api/hotels
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjlmYWI2NWVmMzZkYmJmMjNjNThiMCIsInVzZXJuYW1lIjoibXlybiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDY4NTA3NCwiZXhwIjoxNjg0Njg1MTA0fQ.laFCUVyChonl9L6p5yQNOvuRa8RlRNM-nMBjeFxouKE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjlmYWI2NWVmMzZkYmJmMjNjNThiMCIsInVzZXJuYW1lIjoibXlybiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDg3MDk4NCwiZXhwIjoxNjg0ODcxNTg0fQ.cTdLQGT5g0rTwymVEnnWPOfVuO8Sk9GXUMUWTqyH6J4
 Content-Type: application/json
 
 {
@@ -29,7 +105,7 @@ Content-Type: application/json
 
 ###
 POST http://localhost:3500/api/hotels
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjlmYWI2NWVmMzZkYmJmMjNjNThiMCIsInVzZXJuYW1lIjoibXlybiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDY4NTA3NCwiZXhwIjoxNjg0Njg1MTA0fQ.laFCUVyChonl9L6p5yQNOvuRa8RlRNM-nMBjeFxouKE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjlmYWI2NWVmMzZkYmJmMjNjNThiMCIsInVzZXJuYW1lIjoibXlybiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDg3MDk4NCwiZXhwIjoxNjg0ODcxNTg0fQ.cTdLQGT5g0rTwymVEnnWPOfVuO8Sk9GXUMUWTqyH6J4
 Content-Type: application/json
 
 {
@@ -45,12 +121,12 @@ Content-Type: application/json
 
 
 ###
-GET http://localhost:3500/api/hotels/646a40fc9f60b2c36020a962
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjlmYWI2NWVmMzZkYmJmMjNjNThiMCIsInVzZXJuYW1lIjoibXlybiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDY4NTA3NCwiZXhwIjoxNjg0Njg1MTA0fQ.laFCUVyChonl9L6p5yQNOvuRa8RlRNM-nMBjeFxouKE
+GET http://localhost:3500/api/hotels/645420a8f2f581d3e3cc400a
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjlmYWI2NWVmMzZkYmJmMjNjNThiMCIsInVzZXJuYW1lIjoibXlybiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDg3MDk4NCwiZXhwIjoxNjg0ODcxNTg0fQ.cTdLQGT5g0rTwymVEnnWPOfVuO8Sk9GXUMUWTqyH6J4
 
 ###
 PUT http://localhost:3500/api/hotels/646a40fc9f60b2c36020a962
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjlmYWI2NWVmMzZkYmJmMjNjNThiMCIsInVzZXJuYW1lIjoibXlybiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDY4NTA3NCwiZXhwIjoxNjg0Njg1MTA0fQ.laFCUVyChonl9L6p5yQNOvuRa8RlRNM-nMBjeFxouKE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjlmYWI2NWVmMzZkYmJmMjNjNThiMCIsInVzZXJuYW1lIjoibXlybiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDg3MDk4NCwiZXhwIjoxNjg0ODcxNTg0fQ.cTdLQGT5g0rTwymVEnnWPOfVuO8Sk9GXUMUWTqyH6J4
 Content-Type: application/json
 
 {
@@ -59,8 +135,8 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:3500/api/hotels/646a40fc9f60b2c36020a962
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjlmYWI2NWVmMzZkYmJmMjNjNThiMCIsInVzZXJuYW1lIjoibXlybiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDY4NTA3NCwiZXhwIjoxNjg0Njg1MTA0fQ.laFCUVyChonl9L6p5yQNOvuRa8RlRNM-nMBjeFxouKE
+DELETE http://localhost:3500/api/hotels/645420a8f2f581d3e3cc400a
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjlmYWI2NWVmMzZkYmJmMjNjNThiMCIsInVzZXJuYW1lIjoibXlybiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDg3MDk4NCwiZXhwIjoxNjg0ODcxNTg0fQ.cTdLQGT5g0rTwymVEnnWPOfVuO8Sk9GXUMUWTqyH6J4
 
 
 ###
@@ -93,15 +169,15 @@ Content-Type: application/json
 
 ###
 GET http://localhost:3500/api/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjlmYWI2NWVmMzZkYmJmMjNjNThiMCIsInVzZXJuYW1lIjoibXlybiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDY4NTA3NCwiZXhwIjoxNjg0Njg1MTA0fQ.laFCUVyChonl9L6p5yQNOvuRa8RlRNM-nMBjeFxouKE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjlmYWI2NWVmMzZkYmJmMjNjNThiMCIsInVzZXJuYW1lIjoibXlybiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDg3MDk4NCwiZXhwIjoxNjg0ODcxNTg0fQ.cTdLQGT5g0rTwymVEnnWPOfVuO8Sk9GXUMUWTqyH6J4
 
 ###
 GET http://localhost:3500/api/users/64660b99198422accfaeb173
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjlmYWI2NWVmMzZkYmJmMjNjNThiMCIsInVzZXJuYW1lIjoibXlybiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDY4NTA3NCwiZXhwIjoxNjg0Njg1MTA0fQ.laFCUVyChonl9L6p5yQNOvuRa8RlRNM-nMBjeFxouKE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjlmYWI2NWVmMzZkYmJmMjNjNThiMCIsInVzZXJuYW1lIjoibXlybiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDg3MDk4NCwiZXhwIjoxNjg0ODcxNTg0fQ.cTdLQGT5g0rTwymVEnnWPOfVuO8Sk9GXUMUWTqyH6J4
 
 ###
 POST http://localhost:3500/api/users/6469fab65ef36dbbf23c58b0
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjlmYWI2NWVmMzZkYmJmMjNjNThiMCIsInVzZXJuYW1lIjoibXlybiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDY4NTA3NCwiZXhwIjoxNjg0Njg1MTA0fQ.laFCUVyChonl9L6p5yQNOvuRa8RlRNM-nMBjeFxouKE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjlmYWI2NWVmMzZkYmJmMjNjNThiMCIsInVzZXJuYW1lIjoibXlybiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDg3MDk4NCwiZXhwIjoxNjg0ODcxNTg0fQ.cTdLQGT5g0rTwymVEnnWPOfVuO8Sk9GXUMUWTqyH6J4
 Content-Type: application/json
 
 {
@@ -111,7 +187,7 @@ Content-Type: application/json
 
 ###
 PUT http://localhost:3500/api/users/64660b99198422accfaeb173
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjlmYWI2NWVmMzZkYmJmMjNjNThiMCIsInVzZXJuYW1lIjoibXlybiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDY4NTA3NCwiZXhwIjoxNjg0Njg1MTA0fQ.laFCUVyChonl9L6p5yQNOvuRa8RlRNM-nMBjeFxouKE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjlmYWI2NWVmMzZkYmJmMjNjNThiMCIsInVzZXJuYW1lIjoibXlybiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDg3MDk4NCwiZXhwIjoxNjg0ODcxNTg0fQ.cTdLQGT5g0rTwymVEnnWPOfVuO8Sk9GXUMUWTqyH6J4
 Content-Type: application/json
 
 {
@@ -121,7 +197,7 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:3500/api/users/64660b99198422accfaeb173
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjlmYWI2NWVmMzZkYmJmMjNjNThiMCIsInVzZXJuYW1lIjoibXlybiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDY4NTA3NCwiZXhwIjoxNjg0Njg1MTA0fQ.laFCUVyChonl9L6p5yQNOvuRa8RlRNM-nMBjeFxouKE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjlmYWI2NWVmMzZkYmJmMjNjNThiMCIsInVzZXJuYW1lIjoibXlybiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDg3MDk4NCwiZXhwIjoxNjg0ODcxNTg0fQ.cTdLQGT5g0rTwymVEnnWPOfVuO8Sk9GXUMUWTqyH6J4
 Content-Type: application/json
 
 {

@@ -1,5 +1,6 @@
 import httpStatus from "http-status";
 import Hotel from "../models/Hotel.js";
+import { Types } from "mongoose";
 
 /*
  * Get all hotels
@@ -96,6 +97,28 @@ const update = (id, info) => {
   });
 };
 
+const checkRooms = (id) => {
+  // Convert the id to ObjectId
+  const objectId = new Types.ObjectId(id);
+  return new Promise(async (resolve, reject) => {
+    // It projects the size of the rooms in the hotel whose matches with id
+    const hotels = await Hotel.aggregate([
+      { $match: { _id: objectId } },
+      {
+        $project: { numberOfRooms: { $size: "$rooms" } },
+      },
+    ]);
+
+    // if number of rooms that found is greater than 0 returns error
+    hotels[0].numberOfRooms === 0
+      ? resolve(true)
+      : reject({
+          message: "This Hotel can not be deleted",
+          status: httpStatus.BAD_REQUEST,
+        });
+  });
+};
+
 /*
  * Delete hotel according to id
  *
@@ -115,4 +138,4 @@ const deleteById = (id) => {
   });
 };
 
-export { getAll, get, create, update, deleteById };
+export { getAll, get, create, update, checkRooms, deleteById };

@@ -48,6 +48,11 @@ const updateHotel = async (req, res, next) => {
 const deleteHotelById = async (req, res, next) => {
   try {
     const { id } = req.params;
+
+    // Check hotel own rooms if there is a room in hotel return error
+    await hotelService.checkRooms(id);
+
+    // Delete the hotel
     let deletedHotel = await hotelService.deleteById(id);
     res.onlyMessage(`${deletedHotel.name} is deleted successfully..`);
   } catch (error) {
