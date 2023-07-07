@@ -20,8 +20,8 @@
     "http-status": "^1.6.2",
     "joi": "^17.9.2",
     "joi-objectid": "^4.0.2",
-    "jsonwebtoken": "^9.0.0",
-    "mongoose": "^7.3.0",
+    "jsonwebtoken": "^9.0.1",
+    "mongoose": "^7.3.2",
     "morgan": "^1.10.0",
     "redis": "^4.6.7"
   },
